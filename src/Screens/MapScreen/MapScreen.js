@@ -400,27 +400,27 @@ const MapScreen = props => {
 
         {jobAcceptedView === false && (
           <TouchableOpacity
-          style={{
-            position: 'absolute',
-            bottom: 150,
-            right: 20,
-          }}
-          onPress={() => {
-            if (appData?.online) {
-              setGetJobModal(true);
-
-              // setReachedView(true);
-              // setConfirmed(true);
-            }
-            //props.navigation.navigate("Help");
-          }}>
-          <Image
-            source={{
-              uri: 'https://w7.pngwing.com/pngs/918/46/png-transparent-pegman-google-maps-google-street-view-google-goggles-google-thumbnail.png',
+            style={{
+              position: 'absolute',
+              bottom: 300,
+              right: 20,
             }}
-            style={{height: 60, width: 30}}
-          />
-        </TouchableOpacity>
+            onPress={() => {
+              if (appData?.online) {
+                setGetJobModal(true);
+
+                // setReachedView(true);
+                // setConfirmed(true);
+              }
+              //props.navigation.navigate("Help");
+            }}>
+            <Image
+              source={{
+                uri: 'https://w7.pngwing.com/pngs/918/46/png-transparent-pegman-google-maps-google-street-view-google-goggles-google-thumbnail.png',
+              }}
+              style={{height: 60, width: 30}}
+            />
+          </TouchableOpacity>
         )}
 
         {driving && (

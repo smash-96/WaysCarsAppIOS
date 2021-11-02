@@ -36,7 +36,7 @@ const Account = (props) => {
       <View
         style={{
           padding: 30,
-          marginTop: Dimensions.get("window").height * 0.25,
+          marginTop: "50%",
         }}
       >
         <TouchableOpacity

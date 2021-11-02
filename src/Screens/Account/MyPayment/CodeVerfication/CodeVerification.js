@@ -16,7 +16,7 @@ const CodeVerification = (props) => {
           flexDirection: "row",
           justifyContent: "space-evenly",
           alignItems: "center",
-          marginTop: 150,
+          marginTop: "40%",
         }}
       >
         {["1", "2", "3", "4"].map((element, i) => (

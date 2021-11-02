@@ -7,7 +7,8 @@ import {
   TouchableOpacity,
   Dimensions,
 } from "react-native";
-import { Icon } from "react-native-elements";
+import Icon from 'react-native-vector-icons/FontAwesome';
+//import { Icon } from "react-native-elements";
 import ScreenHeader from "../../../../Components/Custom/ScreenHeader";
 
 const PaymentMethod = (props) => {
@@ -28,7 +29,7 @@ const PaymentMethod = (props) => {
           justifyContent: "space-between",
           alignSelf: "center",
           padding: 40,
-          marginTop: Dimensions.get("window").height * 0.15,
+          marginTop: "30%",
         }}
       >
         <View
