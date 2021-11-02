@@ -34,7 +34,7 @@ const Reached = ({ setCancelModal }) => {
           <TouchableOpacity>
             <Icon
               name="close"
-              type="antdesign"
+              //type="antdesign"
               size={30}
               onPress={() => setCancelModal(true)}
             />

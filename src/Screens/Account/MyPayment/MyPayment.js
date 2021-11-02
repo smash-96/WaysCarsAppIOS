@@ -312,7 +312,7 @@ const MyPayment = (props) => {
           justifyContent: "space-between",
           alignSelf: "center",
           padding: 20,
-          bottom: "2%",
+          bottom: "3%",
         }}
       >
         <Text
@@ -332,7 +332,9 @@ const MyPayment = (props) => {
           }}
           onPress={() => props.navigation.navigate("PaymentMethod")}
         >
-          <Icon name="plus" type="font-awesome-5" size={40} color={"gray"} />
+          <Icon name="plus" 
+          //type="font-awesome-5" 
+          size={40} color={"gray"} />
         </TouchableOpacity>
       </View>
     </SafeAreaView>

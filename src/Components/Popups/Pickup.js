@@ -31,7 +31,7 @@ const Pickup = (props) => {
           <TouchableOpacity onPress={() => props.setCancelModal(true)}>
             <Icon
               name="close"
-              type="antdesign"
+              //type="antdesign"
               size={30}
               color={props.colors.textColor}
             />

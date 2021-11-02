@@ -16,13 +16,13 @@ const UsePhoto = (props) => {
           justifyContent: "center",
           alignItems: "center",
           width: "90%",
-          height: Dimensions.get("window").height * 0.7,
+          height: Dimensions.get("window").height * 0.6,
           borderWidth: 4,
           borderColor: "gray",
           borderRadius: 12,
           alignSelf: "center",
           backgroundColor: "white",
-          marginTop: 40,
+          marginTop: "10%",
         }}
       >
         <SvgDocumentIcon
@@ -36,7 +36,7 @@ const UsePhoto = (props) => {
         style={{
           flexDirection: "row",
           justifyContent: "space-evenly",
-          marginTop: 60,
+          marginTop: "10%",
         }}
       >
         <SingleButton

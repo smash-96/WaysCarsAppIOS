@@ -150,7 +150,7 @@ const ConfirmedUp = ({
               alignItems: "center",
               backgroundColor: startTrip === true ? "#C8102E" : "#169B62",
               height: 50,
-              // bottom: "1%"
+              bottom: "1%"
             },
           ]}
         >

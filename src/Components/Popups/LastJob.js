@@ -42,7 +42,9 @@ const LastJob = ({ finishRide, timerEnded }) => {
             }}
             onPress={finishRide}
           >
-            <Icon name="close" type="antdesign" size={30} />
+            <Icon name="close" 
+            //type="antdesign" 
+            size={30} />
           </TouchableOpacity>
 
           <View>

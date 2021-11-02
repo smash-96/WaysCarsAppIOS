@@ -60,13 +60,13 @@ const BankLetter = (props) => {
           justifyContent: "center",
           alignItems: "center",
           width: "90%",
-          height: Dimensions.get("window").height * 0.6,
+          height: Dimensions.get("window").height * 0.54,
           borderWidth: 6,
           borderColor: "gray",
           borderRadius: 12,
           alignSelf: "center",
           backgroundColor: "white",
-          marginTop: 40,
+          marginTop: "5%",
         }}
       >
         {image !== null ? (
@@ -89,7 +89,7 @@ const BankLetter = (props) => {
         style={{
           flexDirection: "row",
           justifyContent: "space-evenly",
-          marginTop: 60,
+          marginTop: "10%",
         }}
       >
         <SingleButton text={"Take photo"} btnPressed={takePhotoFromCamera} />

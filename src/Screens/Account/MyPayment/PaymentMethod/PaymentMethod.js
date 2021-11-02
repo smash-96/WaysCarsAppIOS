@@ -36,7 +36,9 @@ const PaymentMethod = (props) => {
             flexDirection: "column",
           }}
         >
-          <Icon name="bank" type="font-awesome" size={50} color={"gray"} />
+          <Icon name="bank"
+          //type="font-awesome" 
+          size={50} color={"gray"} />
 
           <Text
             style={{
