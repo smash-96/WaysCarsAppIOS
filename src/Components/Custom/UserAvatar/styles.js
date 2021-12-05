@@ -68,7 +68,7 @@ const dynamicStyles = () => {
       width: "100%",
       justifyContent: "center",
       alignItems: "center",
-      marginBottom: 100,
+      //marginBottom: 100,
     },
     imageContainer: {
       height: imageSize,

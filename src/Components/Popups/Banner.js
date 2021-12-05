@@ -1,3 +1,106 @@
+// import React from "react";
+// import {
+//   StyleSheet,
+//   Text,
+//   TouchableOpacity,
+//   View,
+//   StatusBar,
+//   Platform,
+//   SafeAreaView,
+// } from "react-native";
+// import { Icon } from "react-native-elements";
+// import { color } from "react-native-reanimated";
+
+// const Banner = (props) => {
+//   return (
+//     <SafeAreaView style={styles(props.colors).centeredView}>
+//       <View style={styles(props.colors).modalView}>
+//         <View>
+//           <TouchableOpacity
+//             style={styles(props.colors).menuButton}
+//             onPress={props.bannerMenu}
+//           >
+//             <Icon name="menu" size={30} />
+//           </TouchableOpacity>
+//         </View>
+//         <Text style={styles(props.colors).modalText}>Hi Maisam Shah</Text>
+//         <Text style={styles(props.colors).modalText}>
+//           {props.online === true
+//             ? "Do you want to go offline?"
+//             : "Are you working?"}
+//         </Text>
+
+//         <TouchableOpacity
+//           style={styles(props.colors).button}
+//           activeOpacity={0.8}
+//           onPress={props.modalFunc}
+//         >
+//           <Text style={styles(props.colors).btnText}>
+//             {props.online === true ? "Go Offline" : "Go Online"}
+//           </Text>
+//         </TouchableOpacity>
+//       </View>
+//     </SafeAreaView>
+//   );
+// };
+
+// export default Banner;
+
+// const styles = (props) =>
+//   StyleSheet.create({
+//     centeredView: {
+//       justifyContent: "center",
+//       alignItems: "center",
+//       //paddingTop: Platform.OS === "ios" ? StatusBar.currentHeight : 0,
+//     },
+//     modalView: {
+//       width: "100%",
+//       height: 200,
+//       backgroundColor: props.background,
+//       //borderRadius: 10,
+//       paddingTop: 28,
+//       shadowColor: "#000",
+//       shadowOffset: {
+//         width: 0,
+//         height: 2,
+//       },
+//       shadowOpacity: 0.25,
+//       shadowRadius: 4,
+//       elevation: 5,
+//     },
+//     button: {
+//       justifyContent: "center",
+//       alignSelf: "center",
+//       marginTop: 20,
+//       backgroundColor: "#4F75FF",
+//       width: 56,
+//       height: 56,
+//       borderRadius: 56 / 2,
+//     },
+//     btnText: {
+//       textAlign: "center",
+//       color: "white",
+//     },
+//     modalText: {
+//       textAlign: "center",
+//       fontSize: 16,
+//       color: props.textColor,
+//     },
+//     menuButton: {
+//       position: "absolute",
+//       justifyContent: "center",
+//       //alignItems: "center",
+//       top: 0,
+//       right: 10,
+//       //padding: 10,
+//       zIndex: 1,
+//       backgroundColor: "rgba(243, 244, 246, 100)",
+//       width: 54,
+//       height: 54,
+//       borderRadius: 54 / 2,
+//     },
+//   });
+
 import React from "react";
 import {
   StyleSheet,
@@ -7,27 +110,52 @@ import {
   StatusBar,
   Platform,
   SafeAreaView,
+  Dimensions,
 } from "react-native";
+import { useNavigation } from "@react-navigation/core";
 import { Icon } from "react-native-elements";
 import { color } from "react-native-reanimated";
+import GoOnlineIcon from "../../assets/buttons/online-button.svg";
 
 const Banner = (props) => {
+  const navigation = useNavigation();
   return (
-    <SafeAreaView style={styles(props.colors).centeredView}>
-      <View style={styles(props.colors).modalView}>
-        <View>
-          <TouchableOpacity
-            style={styles(props.colors).menuButton}
-            onPress={props.bannerMenu}
-          >
-            <Icon name="menu" size={30} />
-          </TouchableOpacity>
+    <SafeAreaView >
+      <View style={styles(props.colors).centeredView}>
+
+      <TouchableOpacity
+        style={styles(props.colors).menuButton}
+        onPress={props.bannerMenu}
+        //disabled={jobAcceptedView}
+      >
+        <Icon name="menu" size={30} />
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles(props.colors).button2}
+        onPress={() => navigation.navigate("ActiveJobs")}
+      >
+        <View
+          style={{
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Text style={styles(props.colors).btn2Text}>Jobs</Text>
         </View>
+      </TouchableOpacity>
+
+      <View style={styles(props.colors).modalView}>
         <Text style={styles(props.colors).modalText}>Hi Maisam Shah</Text>
-        <Text style={styles(props.colors).modalText}>
-          {props.online === true
-            ? "Do you want to go offline?"
-            : "Are you working?"}
+        <Text
+          style={{
+            textAlign: "center",
+            color: "#040B25A3",
+            fontSize: 13,
+          }}
+        >
+          {props.online === true ? "Go Offline?" : "Go Online?"}
         </Text>
 
         <TouchableOpacity
@@ -35,11 +163,11 @@ const Banner = (props) => {
           activeOpacity={0.8}
           onPress={props.modalFunc}
         >
-          <Text style={styles(props.colors).btnText}>
-            {props.online === true ? "Go Offline" : "Go Online"}
-          </Text>
+          <GoOnlineIcon width={80} height={80} />
+          {/* <Text style={styles(props.colors).btnText}>Yes</Text> */}
         </TouchableOpacity>
       </View>
+        </View>
     </SafeAreaView>
   );
 };
@@ -49,15 +177,16 @@ export default Banner;
 const styles = (props) =>
   StyleSheet.create({
     centeredView: {
-      justifyContent: "center",
-      alignItems: "center",
+      paddingLeft: 10,
+      paddingRight: 10,
       //paddingTop: Platform.OS === "ios" ? StatusBar.currentHeight : 0,
     },
     modalView: {
+      top: Dimensions.get("window").height * 0.3,
       width: "100%",
       height: 200,
       backgroundColor: props.background,
-      //borderRadius: 10,
+      borderRadius: 10,
       paddingTop: 28,
       shadowColor: "#000",
       shadowOffset: {
@@ -71,32 +200,62 @@ const styles = (props) =>
     button: {
       justifyContent: "center",
       alignSelf: "center",
-      marginTop: 20,
-      backgroundColor: "#4F75FF",
-      width: 56,
-      height: 56,
-      borderRadius: 56 / 2,
+      marginTop: 10,
+      // backgroundColor: "#102FCC",
+      // width: 56,
+      // height: 56,
+      // borderRadius: 56 / 2,
     },
     btnText: {
       textAlign: "center",
-      color: "white",
+      color: "#FDFEFF",
+      fontSize: 18,
+      fontWeight: "bold",
     },
     modalText: {
       textAlign: "center",
       fontSize: 16,
       color: props.textColor,
+      fontWeight: "bold",
     },
+    // menuButton: {
+    //   position: "absolute",
+    //   justifyContent: "center",
+    //   //alignItems: "center",
+    //   top: -6,
+    //   right: 10,
+    //   //padding: 10,
+    //   zIndex: 1,
+    //   backgroundColor: "rgba(243, 244, 246, 100)",
+    //   width: 54,
+    //   height: 54,
+    //   borderRadius: 54 / 2,
+    // },
     menuButton: {
       position: "absolute",
-      justifyContent: "center",
-      //alignItems: "center",
-      top: 0,
-      right: 10,
-      //padding: 10,
-      zIndex: 1,
-      backgroundColor: "rgba(243, 244, 246, 100)",
+      top: 28,
+      left: 10,
+      padding: 10,
+      backgroundColor: "#FFFFFF",
       width: 54,
       height: 54,
       borderRadius: 54 / 2,
+      zIndex: 1,
+    },
+    button2: {
+      position: "absolute",
+      top: 28,
+      right: 10,
+      backgroundColor: "#F0F1F2",
+      width: 54,
+      height: 54,
+      borderRadius: 54 / 2,
+    },
+    btn2Text: {
+      //textAlign: "center",
+      color: "black",
+      fontSize: 14,
+      fontWeight: "600",
+      //top: 6,
     },
   });
