@@ -2,7 +2,7 @@ import { Dimensions } from "react-native";
 import { StyleSheet } from "react-native";
 
 const { height } = Dimensions.get("window");
-const imageSize = height * 0.12;
+const imageSize = height * 0.10;
 const photoIconSize = imageSize * 0.27;
 
 const dynamicStyles = () => {

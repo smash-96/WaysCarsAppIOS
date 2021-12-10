@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useCallback } from "react";
+import React, {useRef, useEffect, useCallback} from 'react';
 import {
   StyleSheet,
   Text,
@@ -6,22 +6,28 @@ import {
   Dimensions,
   TouchableOpacity,
   Image,
-} from "react-native";
+} from 'react-native';
 
 import Animated, {
   useSharedValue,
   withTiming,
   useAnimatedProps,
-} from "react-native-reanimated";
-import Svg, { Circle } from "react-native-svg";
+} from 'react-native-reanimated';
+import Svg, {Circle} from 'react-native-svg';
 
-import SvgUserIcon from "../../assets/user-profile-image.svg";
+import SvgUserIcon from '../../assets/user-profile-image.svg';
+import GreenCircleIcon from '../../assets/green-circle.svg';
+import RedCircleIcon from '../../assets/red-circle.svg';
+import DottedDownArrowIcon from '../../assets/down-arrow-line.svg';
+import DottedRightArrowIcon from '../../assets/right-arrow-line.svg';
+import SmallSquareIcon from '../../assets/square.svg';
+import PicStarIcon from '../../assets/pic-star.svg';
 
 const CIRCLE_LENGTH = 283; // 2PI*R
 const R = CIRCLE_LENGTH / (2 * Math.PI);
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
-const GetJob = (props) => {
+const GetJob = props => {
   const progress = useSharedValue(0);
 
   const animatedProps = useAnimatedProps(() => ({
@@ -31,7 +37,7 @@ const GetJob = (props) => {
 
   useEffect(() => {
     progress.value = withTiming(progress.value > 0 ? 0 : 1, {
-      duration: 30000,
+      duration: 5000,
     });
   }, []);
 
@@ -40,13 +46,47 @@ const GetJob = (props) => {
       <View style={styles.modalView}>
         <View
           style={{
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Text style={styles.modalText}>$340.00</Text>
+            flex: 1,
+            flexDirection: 'row',
+            // justifyContent: 'space-between',
+            alignItems: 'center',
+            bottom: 20,
+          }}>
+          <View
+            style={{
+              flex: 1,
+              paddingLeft: 30,
+            }}
+          />
 
           <View
+            style={{
+              flex: 1,
+              paddingRight: 30,
+            }}>
+            <Text style={styles.modalText}>$340.00</Text>
+          </View>
+
+          <View
+            style={{
+              flex: 1,
+              //paddingRight: 10,
+            }}>
+            <Text
+              style={{
+                // position: "absolute",
+                // top: 0,
+                // right: 0,
+                fontSize: 15,
+                color: 'black',
+                fontWeight: '400',
+                paddingLeft:10,
+              }}>
+              Executive
+            </Text>
+          </View>
+
+          {/* <View
             style={{
               height: 3.5,
               width: "30%",
@@ -54,61 +94,64 @@ const GetJob = (props) => {
               opacity: 0.2,
               top: -20,
             }}
-          />
+          /> */}
         </View>
-        <View style={{ flexDirection: "row", flex: 1 }}>
+
+        <View
+          style={{
+            flex: 1,
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            //alignItems: "center",
+            alignContent: 'center',
+          }}>
           <View
             style={{
-              flex: 2,
-              flexDirection: "column",
-              position: "absolute",
-              top: -20,
-              left: 0,
-            }}
-          >
-            <Image
-              source={require("../../assets/location-icon.png")}
-              style={{
-                height: 30,
-                width: 25,
-              }}
-              resizeMode="contain"
-            />
-            <Text
-              style={{
-                fontSize: 12,
-                color: "black",
-                width: 80,
-              }}
-              numberOfLines={3}
-              ellipsizeMode="tail"
-            >
-              LocationLocationLocationLocationLocationLocationLocationLocationLocationLocationLocationLocationLocationLocationLocationLocationLocationLocationLocationLocationLocationLocation
-            </Text>
+              left: 1,
+              bottom: 2,
+              //flex: 1,
+              // position: "absolute",
+              // justifyContent: "center",
+              // alignItems: "center",
+            }}>
+            <SmallSquareIcon />
           </View>
+          <View
+          // style={{
+          //   flex: 1,
+          //   // position: "absolute",
+          //   // justifyContent: "center",
+          //   // alignItems: "center",
+          // }}
+          >
+            <DottedDownArrowIcon />
+          </View>
+
           <Text
             style={{
-              position: "absolute",
-              top: 0,
-              right: 0,
-              fontSize: 12,
-              color: "black",
-            }}
-          >
-            Executive
+              right: 16,
+              top: 10,
+              fontWeight: '400',
+            }}>
+            12 min
           </Text>
         </View>
 
         <View style={styles.imageBlock}>
+          {/* <View
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+          </View> */}
           <Svg
             style={{
-              position: "absolute",
-              transform: [{ rotate: "270deg" }],
+              position: 'absolute',
+              transform: [{rotate: '270deg'}],
             }}
-            width={Dimensions.get("window").width * 0.4}
-            height={Dimensions.get("window").width * 0.4}
-            viewBox="0 0 100 100"
-          >
+            width={Dimensions.get('window').width * 0.38}
+            height={Dimensions.get('window').width * 0.38}
+            viewBox="0 0 100 100">
             <AnimatedCircle
               cx={50}
               cy={50}
@@ -116,58 +159,117 @@ const GetJob = (props) => {
               strokeWidth={10}
               strokeDasharray={CIRCLE_LENGTH}
               animatedProps={animatedProps}
-              //strokeLinecap={"round"}
+              strokeLinecap={'round'}
             />
           </Svg>
           <TouchableOpacity
             style={styles.imageContainer}
             onPress={props.getJobFunc}
-            activeOpacity={0.9}
-          >
+            activeOpacity={0.9}>
             <View
               style={{
                 flex: 1,
-                flexDirection: "column",
-              }}
-            >
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
               <View style={styles.image}>
-                <SvgUserIcon />
+                <SvgUserIcon width={50} height={50} />
+              </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                }}>
+                <View
+                  style={{
+                    right: 2,
+                  }}>
+                  <PicStarIcon />
+                </View>
+
+                <Text
+                  style={{
+                    color: '#040B25FC',
+                    //fontFamily: "sans-serif-condensed",
+                    fontSize: 14,
+                    fontWeight: '400',
+                    left: 2,
+                  }}>
+                  4.65
+                </Text>
               </View>
               <Text
                 style={{
-                  textAlign: "center",
-                  top: 10,
-                }}
-              >
-                Rider Name
+                  textAlign: 'center',
+                  color: '#040B25FC',
+                  //top: 10,
+                }}>
+                Marry
               </Text>
             </View>
           </TouchableOpacity>
         </View>
 
-        <View style={{ flexDirection: "row", flex: 1 }}>
-          <Text
+        <View
+          style={{
+            flex: 1,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            top: '5%',
+          }}>
+          <View
             style={{
-              position: "absolute",
-              bottom: 0,
-              left: 0,
-              fontSize: 12,
-              color: "black",
-            }}
-          >
-            54 mins
-          </Text>
-          <Text
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}>
+            <GreenCircleIcon />
+
+            <Text
+              style={{
+                left: 8,
+                fontWeight: '400',
+              }}>
+              WC1 A
+            </Text>
+          </View>
+
+          <View
             style={{
-              position: "absolute",
-              bottom: 0,
-              right: 0,
-              fontSize: 12,
-              color: "black",
-            }}
-          >
-            8.9 miles
-          </Text>
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}>
+            <DottedRightArrowIcon />
+            <Text
+              style={{
+                left: 6,
+                fontWeight: '400',
+                fontSize: 14,
+              }}>
+              17 mls
+            </Text>
+          </View>
+
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              left:6
+            }}>
+            <RedCircleIcon />
+
+            <Text
+              style={{
+                left: 10,
+                fontSize: 14,
+                fontWeight: '400',
+              }}>
+              TW6
+            </Text>
+          </View>
         </View>
       </View>
     </View>
@@ -178,72 +280,75 @@ export default GetJob;
 
 const styles = StyleSheet.create({
   centeredView: {
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     //paddingTop: height / 3,
   },
   modalView: {
     //alignItems: "center",
-    width: "96%",
-    height: "100%",
+    width: 349,
+    height: 250,
     //height: "100%",
-    backgroundColor: "#ece8f8",
-    borderRadius: 10,
-    padding: 30,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
+    // backgroundColor: "#ece8f8",
+    backgroundColor: 'white',
+    borderRadius: 3,
+    padding: 25,
+    // shadowColor: '#000',
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 0.25,
+    // shadowRadius: 4,
+    // elevation: 5,
     //top: height / 3,
   },
   modalText: {
-    textAlign: "center",
-    fontSize: 16,
-    fontWeight: "bold",
-    bottom: 20,
+    textAlign: 'center',
+    fontSize: 18,
+    fontWeight: '600',
+    //bottom: 20,
   },
 
   image: {
-    top: 10,
-    alignItems: "center",
+    //top: 10,
+    alignItems: 'center',
   },
   imageBlock: {
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
+    bottom: '10%',
   },
   imageContainer: {
     borderRadius:
       Math.round(
-        Dimensions.get("window").width + Dimensions.get("window").height
+        Dimensions.get('window').width + Dimensions.get('window').height,
       ) / 2,
-    width: Dimensions.get("window").width * 0.3,
-    height: Dimensions.get("window").width * 0.3,
-    backgroundColor: "#ece8f8",
-    elevation: 10,
-    shadowColor: "#006",
+    width: Dimensions.get('window').width * 0.3,
+    height: Dimensions.get('window').width * 0.3,
+    // backgroundColor: "#ece8f8",
+    backgroundColor: 'white',
+    // elevation: 10,
+    shadowColor: '#006',
     shadowOffset: {
       width: 0,
       height: 2,
     },
     shadowOpacity: 0.1,
-    overflow: "hidden",
+    overflow: 'hidden',
   },
 
   item: {
-    position: "absolute",
+    position: 'absolute',
     width: 100,
     height: 200, // this is the diameter of circle
   },
   dot: {
-    width: "20%",
+    width: '20%',
     height: 20,
-    backgroundColor: "red",
-    position: "absolute",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: 'red',
+    position: 'absolute',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

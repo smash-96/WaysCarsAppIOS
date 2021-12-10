@@ -775,7 +775,7 @@ const MapScreen = (props) => {
     setDriving(true);
   };
   return (
-    <SafeAreaView>
+
       <View>
         <Modal transparent={true} visible={appData?.modalOpen}>
           <View
@@ -956,7 +956,7 @@ const MapScreen = (props) => {
             <View
               style={{
                 position: "absolute",
-                top: 28,
+                top: 63,
                 right: 0,
                 left: 0,
                 //bottom: 0,
@@ -991,7 +991,7 @@ const MapScreen = (props) => {
         <TouchableOpacity
           style={{
             position: "absolute",
-            bottom: 400,
+            bottom: 200,
             right: 20,
           }}
           onPress={() => {
@@ -1142,7 +1142,7 @@ const MapScreen = (props) => {
         )}
         {loading && <TNActivityIndicator />}
       </View>
-    </SafeAreaView>
+
   );
 };
 
@@ -1165,8 +1165,8 @@ const styles = StyleSheet.create({
   },
   menuButton: {
     position: "absolute",
-    top: 28,
-    left: 10,
+    top: 63,
+    left: 33,
     padding: 10,
     backgroundColor: "#FFFFFF",
     width: 54,
@@ -1176,8 +1176,8 @@ const styles = StyleSheet.create({
   },
   button2: {
     position: "absolute",
-    top: 28,
-    right: 10,
+    top: 63,
+    left: 315,
     backgroundColor: "#F0F1F2",
     width: 54,
     height: 54,
