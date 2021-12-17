@@ -130,12 +130,12 @@ const MapScreen = (props) => {
   const getJobFunc = async () => {
     setGetJobModal(false);
 
-    setLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setLoading(false);
+    // setLoading(true);
+    // await new Promise((resolve) => setTimeout(resolve, 1000));
+    // setLoading(false);
 
-    setJobAcceptedView(true);
-    setConfirmed(true);
+    // setJobAcceptedView(true);
+    // setConfirmed(true);
   };
 
   const jobDetailFunc = async () => {
@@ -211,6 +211,7 @@ const MapScreen = (props) => {
           <View
             style={{
               justifyContent: "center",
+              
               // top: "33%",
             }}
           >
@@ -253,7 +254,18 @@ const MapScreen = (props) => {
         </View>
 
         {/* Get job Modal */}
-        {appData?.online && getJobModal === true && (
+        <Modal transparent={true} visible={(appData?.online && getJobModal === true )}>
+          <View
+            style={{
+              // justifyContent: "center",
+              // alignItems:"center"
+              // top: "33%",
+            }}
+          >
+            <GetJob getJobFunc={getJobFunc} colors={colors} />
+          </View>
+        </Modal>
+        {/* {appData?.online && getJobModal === true && (
           <View
             style={{
               position: "absolute",
@@ -264,7 +276,7 @@ const MapScreen = (props) => {
           >
             <GetJob getJobFunc={getJobFunc} colors={colors} />
           </View>
-        )}
+        )} */}
 
         {appData?.online && (jobAcceptedView === true || startTrip === true) && (
           <View
@@ -490,7 +502,7 @@ const MapScreen = (props) => {
                 //backgroundColor: "rgba(0, 0, 255, 0.4)",
                 backgroundColor: "white",
                 // borderRadius: 4,
-                height: "8%",
+                height: "7%",
                 width: "100%",
                 borderTopWidth: 6,
                 borderTopLeftRadius: 4,
@@ -510,7 +522,7 @@ const MapScreen = (props) => {
             //   jobAcceptedView === true || endTrip === true || lastJob === true
             // }
           >
-            <View
+            {/* <View
               style={{
                 flexDirection: "column",
                 alignItems: "center",
@@ -518,12 +530,12 @@ const MapScreen = (props) => {
             >
               <LineIcon height={20} width={50} />
 
+            </View> */}
               {jobAcceptedView === false &&
                 endTrip === false &&
                 lastJob === false && (
                   <Text style={styles.text}>You're Online</Text>
                 )}
-            </View>
           </View>
         ) : (
           <>
@@ -533,7 +545,7 @@ const MapScreen = (props) => {
                 {
                   backgroundColor: "white",
                   borderRadius: 8,
-                  height: "8%",
+                  height: "7%",
                   borderTopWidth: 6,
                   borderTopLeftRadius: 4,
                   borderTopRightRadius: 4,
@@ -553,7 +565,7 @@ const MapScreen = (props) => {
               //   jobAcceptedView === true || endTrip === true || lastJob === true
               // }
             >
-              <View
+              {/* <View
                 style={{
                   flexDirection: "column",
                   alignItems: "center",
@@ -561,12 +573,12 @@ const MapScreen = (props) => {
               >
                 <LineIcon height={20} width={50} />
 
+              </View> */}
                 {jobAcceptedView === false &&
                   endTrip === false &&
                   lastJob === false && (
                     <Text style={styles.text}>You're Offline</Text>
                   )}
-              </View>
             </View>
           </>
         )}

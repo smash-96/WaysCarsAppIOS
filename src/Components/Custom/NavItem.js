@@ -43,7 +43,13 @@ const NavItem = ({ Icon, text, onClickFunction, type }) => {
         </View>
 
         <View>
-          <ExpandIcon />
+
+          {type==="drawer" ? (
+            <ExpandIcon height={11} width={11}/>
+          ) : (
+
+          <ExpandIcon height={20} width={20}/>
+          )}
         </View>
       </TouchableOpacity>
 
@@ -51,13 +57,13 @@ const NavItem = ({ Icon, text, onClickFunction, type }) => {
         <View
           style={{
             paddingLeft: 12,
-            paddingRight: 12,
+            paddingRight: 32,
           }}
         >
           <Line
             lineColor={"#B2B4B8"}
-            topSpace={Dimensions.get("screen").height * 0.0182}
-            bottomSpace={Dimensions.get("screen").height * 0.0182}
+            topSpace={Dimensions.get("screen").height * 0.031}
+            bottomSpace={Dimensions.get("screen").height * 0.0312}
           />
         </View>
         // <View

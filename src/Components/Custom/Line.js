@@ -5,7 +5,7 @@ export default function Line({ topSpace, bottomSpace, lineColor }) {
   return (
     <View
       style={{
-        height: 0.9,
+        height: 1,
         backgroundColor: lineColor,
         width: "100%",
         // alignSelf: "center",

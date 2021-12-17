@@ -15,6 +15,8 @@ import Animated, {
 } from 'react-native-reanimated';
 import Svg, {Circle} from 'react-native-svg';
 
+import SvgGreenLocation from '../../assets/buttons/green-location-icon.svg';
+import SvgRedLocation from '../../assets/buttons/red-location-icon.svg';
 import SvgUserIcon from '../../assets/user-profile-image.svg';
 import GreenCircleIcon from '../../assets/green-circle.svg';
 import RedCircleIcon from '../../assets/red-circle.svg';
@@ -23,7 +25,7 @@ import DottedRightArrowIcon from '../../assets/right-arrow-line.svg';
 import SmallSquareIcon from '../../assets/square.svg';
 import PicStarIcon from '../../assets/pic-star.svg';
 
-const CIRCLE_LENGTH = 283; // 2PI*R
+const CIRCLE_LENGTH = 350; // 2PI*R
 const R = CIRCLE_LENGTH / (2 * Math.PI);
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
@@ -37,7 +39,7 @@ const GetJob = props => {
 
   useEffect(() => {
     progress.value = withTiming(progress.value > 0 ? 0 : 1, {
-      duration: 5000,
+      duration: 20000,
     });
   }, []);
 
@@ -52,20 +54,7 @@ const GetJob = props => {
             alignItems: 'center',
             bottom: 20,
           }}>
-          <View
-            style={{
-              flex: 1,
-              paddingLeft: 30,
-            }}
-          />
-
-          <View
-            style={{
-              flex: 1,
-              paddingRight: 30,
-            }}>
-            <Text style={styles.modalText}>$340.00</Text>
-          </View>
+          
 
           <View
             style={{
@@ -76,15 +65,30 @@ const GetJob = props => {
               style={{
                 // position: "absolute",
                 // top: 0,
-                // right: 0,
+                right: 6,
                 fontSize: 15,
                 color: 'black',
                 fontWeight: '400',
-                paddingLeft:10,
+                //paddingRight: 10,
               }}>
               Executive
             </Text>
           </View>
+
+          <View
+            style={{
+              flex: 1,
+              //paddingRight: 30,
+            }}>
+            <Text style={styles.modalText}>$340.00</Text>
+          </View>
+
+          <View
+            style={{
+              flex: 1,
+              //paddingRight: 30,
+            }}
+          />
 
           {/* <View
             style={{
@@ -149,17 +153,20 @@ const GetJob = props => {
               position: 'absolute',
               transform: [{rotate: '270deg'}],
             }}
-            width={Dimensions.get('window').width * 0.38}
-            height={Dimensions.get('window').width * 0.38}
-            viewBox="0 0 100 100">
+            // width={Dimensions.get('window').width * 0.38}
+            // height={Dimensions.get('window').height * 0.38}
+            width={1100}
+            height={1100}
+            viewBox={`-350 -350 800 800`}>
+            <Circle cx="50" cy="50" r="50" strokeWidth="10" stroke="white" />
             <AnimatedCircle
               cx={50}
               cy={50}
-              r={45}
+              r={50}
               strokeWidth={10}
               strokeDasharray={CIRCLE_LENGTH}
               animatedProps={animatedProps}
-              strokeLinecap={'round'}
+              //strokeLinecap={'round'}
             />
           </Svg>
           <TouchableOpacity
@@ -176,7 +183,7 @@ const GetJob = props => {
               <View style={styles.image}>
                 <SvgUserIcon width={50} height={50} />
               </View>
-              <View
+              {/* <View
                 style={{
                   flexDirection: 'row',
                   alignItems: 'center',
@@ -198,12 +205,12 @@ const GetJob = props => {
                   }}>
                   4.65
                 </Text>
-              </View>
+              </View> */}
               <Text
                 style={{
                   textAlign: 'center',
                   color: '#040B25FC',
-                  //top: 10,
+                  top: 10,
                 }}>
                 Marry
               </Text>
@@ -224,7 +231,12 @@ const GetJob = props => {
               justifyContent: 'space-between',
               alignItems: 'center',
             }}>
-            <GreenCircleIcon />
+            <View
+              style={{
+                bottom: 4,
+              }}>
+              <SvgGreenLocation />
+            </View>
 
             <Text
               style={{
@@ -257,13 +269,18 @@ const GetJob = props => {
               flexDirection: 'row',
               justifyContent: 'space-between',
               alignItems: 'center',
-              left:6
+              //left:6
             }}>
-            <RedCircleIcon />
+            <View
+              style={{
+                bottom: 4,
+              }}>
+              <SvgRedLocation />
+            </View>
 
             <Text
               style={{
-                left: 10,
+                left: 6,
                 fontSize: 14,
                 fontWeight: '400',
               }}>
@@ -280,19 +297,24 @@ export default GetJob;
 
 const styles = StyleSheet.create({
   centeredView: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    backgroundColor: '#0707074D',
+    height: '100%',
+
     //paddingTop: height / 3,
   },
   modalView: {
+    top: Dimensions.get('window').height * 0.32,
     //alignItems: "center",
-    width: 349,
+    width: 355,
     height: 250,
     //height: "100%",
     // backgroundColor: "#ece8f8",
-    backgroundColor: 'white',
+    backgroundColor: '#F0F0FD',
     borderRadius: 3,
     padding: 25,
+    alignSelf: 'center',
     // shadowColor: '#000',
     // shadowOffset: {
     //   width: 0,
@@ -300,7 +322,7 @@ const styles = StyleSheet.create({
     // },
     // shadowOpacity: 0.25,
     // shadowRadius: 4,
-    // elevation: 5,
+    elevation: 5,
     //top: height / 3,
   },
   modalText: {
@@ -327,7 +349,7 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width * 0.3,
     height: Dimensions.get('window').width * 0.3,
     // backgroundColor: "#ece8f8",
-    backgroundColor: 'white',
+    backgroundColor: '#F0F0FD',
     // elevation: 10,
     shadowColor: '#006',
     shadowOffset: {

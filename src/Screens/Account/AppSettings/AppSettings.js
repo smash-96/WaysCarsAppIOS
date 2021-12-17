@@ -62,7 +62,7 @@ const ExpandableComponent = ({index, item, onClickFunction, setSubValues}) => {
           <Text
             style={{
               fontSize: 18,
-              paddingLeft: 20,
+              paddingLeft: 12,
             }}>
             {item.category_name}
           </Text>
@@ -79,7 +79,7 @@ const ExpandableComponent = ({index, item, onClickFunction, setSubValues}) => {
         <Line
           lineColor={'#B2B4B8'}
           topSpace={Dimensions.get('screen').height * 0.02}
-          bottomSpace={Dimensions.get('screen').height * 0.02}
+          bottomSpace={Dimensions.get('screen').height * 0.022}
         />
       </View>
 
@@ -128,8 +128,8 @@ const ExpandableComponent = ({index, item, onClickFunction, setSubValues}) => {
                   }}>
                   <Line
                     lineColor={'#D2D2D2'}
-                    topSpace={Dimensions.get('screen').height * 0.01}
-                    bottomSpace={Dimensions.get('screen').height * 0.01}
+                    topSpace={Dimensions.get('screen').height * 0.021}
+                    bottomSpace={Dimensions.get('screen').height * 0.021}
                   />
                 </View>
               ) : (

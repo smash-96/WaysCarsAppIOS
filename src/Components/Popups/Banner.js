@@ -74,6 +74,8 @@ export default Banner;
 const styles = (props) =>
   StyleSheet.create({
     centeredView: {
+      backgroundColor:"#0707074D",
+      height:"100%"
       // paddingLeft: 10,
       // paddingRight: 10,
       //paddingTop: Platform.OS === "ios" ? StatusBar.currentHeight : 0,
@@ -82,7 +84,8 @@ const styles = (props) =>
       top: Dimensions.get("window").height * 0.34,
       width: 349,
       height: 168,
-      backgroundColor: props.background,
+      //backgroundColor: props.background,
+      backgroundColor:"#F0F0FD",
       borderRadius: 5,
       paddingTop: 28,
       shadowColor: "#000",
