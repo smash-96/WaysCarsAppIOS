@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   SafeAreaView,
   Text,
@@ -6,42 +6,41 @@ import {
   ScrollView,
   TouchableOpacity,
   Dimensions,
-} from "react-native";
-import { createDrawerNavigator, DrawerItem } from "@react-navigation/drawer";
-import { useTheme } from "@react-navigation/native";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-import MapScreen from "../Screens/MapScreen/MapScreen";
-import { Avatar, colors } from "react-native-elements";
-import ActiveJobs from "../Screens/ActiveJobs/ActiveJobs";
-import UserAvatar from "../Components/Custom/UserAvatar/UserAvatar";
-import AccountStack from "./AccountStack";
-import { useSelector, useDispatch } from "react-redux";
-import { setAppData, selectAppData } from "../redux/slices/AppStateSlice";
-import { color } from "react-native-reanimated";
-import LeftArrowIcon from "../assets/left-arrow.svg";
-import ContactUsIcon from "../assets/buttons/contact-us.svg";
-import ActiveJobsIcon from "../assets/buttons/active-jobs.svg";
-import EarningIcon from "../assets/buttons/earnings.svg";
-import AccountIcon from "../assets/buttons/account.svg";
-import GoOfflineIcon from "../assets/buttons/offline-button.svg";
-import PicStarIcon from "../assets/pic-star.svg";
-import NavItem from "../Components/Custom/NavItem";
-import Line from "../Components/Custom/Line";
+} from 'react-native';
+import {createDrawerNavigator, DrawerItem} from '@react-navigation/drawer';
+import {useTheme} from '@react-navigation/native';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import MapScreen from '../Screens/MapScreen/MapScreen';
+import {Avatar, colors} from 'react-native-elements';
+import ActiveJobs from '../Screens/ActiveJobs/ActiveJobs';
+import UserAvatar from '../Components/Custom/UserAvatar/UserAvatar';
+import AccountStack from './AccountStack';
+import {useSelector, useDispatch} from 'react-redux';
+import {setAppData, selectAppData} from '../redux/slices/AppStateSlice';
+import {color} from 'react-native-reanimated';
+import LeftArrowIcon from '../assets/left-arrow.svg';
+import ContactUsIcon from '../assets/buttons/contact-us.svg';
+import ActiveJobsIcon from '../assets/buttons/active-jobs.svg';
+import EarningIcon from '../assets/buttons/earnings.svg';
+import AccountIcon from '../assets/buttons/account.svg';
+import GoOfflineIcon from '../assets/buttons/offline-button.svg';
+import PicStarIcon from '../assets/pic-star.svg';
+import NavItem from '../Components/Custom/NavItem';
+import Line from '../Components/Custom/Line';
 
 function CustomDrawerContent(props) {
   const dispatch = useDispatch();
-  const { colors } = useTheme();
+  const {colors} = useTheme();
 
   const appData = useSelector(selectAppData);
   const baseAvatar =
-    "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
+    'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{flex: 1}}>
       <ScrollView>
         <SafeAreaView
           // style={{ flex: 1 }}
-          forceInset={{ top: "always", horizontal: "never" }}
-        >
+          forceInset={{top: 'always', horizontal: 'never'}}>
           <View
             style={{
               //flexDirection: "row",
@@ -50,14 +49,13 @@ function CustomDrawerContent(props) {
               //width: width,
               //justifyContent: "space-between",
               margin: 1,
-            }}
-          >
+            }}>
             <TouchableOpacity
               style={{
                 padding: 10,
-                left:20,
+                left: 20,
                 top: 20,
-                zIndex:1
+                zIndex: 999,
               }}
               onPress={() => {
                 if (!appData?.online) {
@@ -65,12 +63,11 @@ function CustomDrawerContent(props) {
                     setAppData({
                       ...appData,
                       modalOpen: true,
-                    })
+                    }),
                   );
                 }
                 props.navigation.toggleDrawer();
-              }}
-            >
+              }}>
               <LeftArrowIcon />
               {/* <Avatar rounded source={require("../assets/left-arrow.png")} /> */}
             </TouchableOpacity>
@@ -78,45 +75,41 @@ function CustomDrawerContent(props) {
             {/* <View /> */}
           </View>
 
-          <View style={{ paddingTop: "8%", paddingBottom: "4%" }}>
-            <View style={{ justifyContent: "center", alignItems: "center" }}>
+          <View style={{paddingTop: '8%', paddingBottom: '4%'}}>
+            <View style={{justifyContent: 'center', alignItems: 'center'}}>
               <UserAvatar profilePic={baseAvatar} drawer={true} />
               <Text
                 style={{
                   top: 0,
-                  color: "#040B25",
-                  marginTop: "3%",
+                  color: '#040B25',
+                  marginTop: '3%',
                   //fontFamily: "sans-serif-condensed",
                   fontSize: 18,
-                  fontWeight: "400",
-                }}
-              >
+                  fontWeight: '400',
+                }}>
                 Jeo
               </Text>
               <View
                 style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                }}
-              >
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                }}>
                 <View
                   style={{
                     right: 2,
-                  }}
-                >
+                  }}>
                   <PicStarIcon />
                 </View>
 
                 <Text
                   style={{
-                    color: "#8C97A3",
+                    color: '#8C97A3',
                     //fontFamily: "sans-serif-condensed",
                     fontSize: 15,
-                    fontWeight: "500",
+                    fontWeight: '500',
                     left: 2,
-                  }}
-                >
-                  4.65
+                  }}>
+                  4.75
                 </Text>
               </View>
             </View>
@@ -124,22 +117,22 @@ function CustomDrawerContent(props) {
           <View
             style={{
               height: 0.8,
-              backgroundColor: "#B2B4B8",
-              width: "100%",
+              backgroundColor: '#B2B4B8',
+              width: '100%',
               marginBottom: 8,
+              marginTop: 28,
             }}
           />
           <View
             style={{
               paddingTop: 20,
               paddingBottom: 20,
-            }}
-          >
+            }}>
             <NavItem
               Icon={ActiveJobsIcon}
-              text={"Active Jobs"}
-              onClickFunction={() => props.navigation.navigate("ActiveJobs")}
-              type={"drawer"}
+              text={'Active Jobs'}
+              onClickFunction={() => props.navigation.navigate('ActiveJobs')}
+              type={'drawer'}
             />
           </View>
 
@@ -147,13 +140,12 @@ function CustomDrawerContent(props) {
             style={{
               paddingTop: 20,
               paddingBottom: 20,
-            }}
-          >
+            }}>
             <NavItem
               Icon={EarningIcon}
-              text={"Earning"}
-              onClickFunction={() => console.log("EARNINGS")}
-              type={"drawer"}
+              text={'Earnings'}
+              onClickFunction={() => console.log('EARNINGS')}
+              type={'drawer'}
             />
           </View>
 
@@ -161,13 +153,12 @@ function CustomDrawerContent(props) {
             style={{
               paddingTop: 20,
               paddingBottom: 20,
-            }}
-          >
+            }}>
             <NavItem
               Icon={AccountIcon}
-              text={"Account"}
-              onClickFunction={() => props.navigation.navigate("AccountStack")}
-              type={"drawer"}
+              text={'Account'}
+              onClickFunction={() => props.navigation.navigate('AccountStack')}
+              type={'drawer'}
             />
           </View>
           {/* <DrawerItem
@@ -192,15 +183,13 @@ function CustomDrawerContent(props) {
           <View
             style={{
               marginTop: 35,
-            }}
-          >
+            }}>
             <Text
               style={{
                 left: 20,
                 fontSize: 20,
-                fontWeight: "500",
-              }}
-            >
+                fontWeight: '500',
+              }}>
               Help
             </Text>
 
@@ -216,16 +205,16 @@ function CustomDrawerContent(props) {
           </View>
 
           <Line
-            lineColor={"#B2B4B8"}
-            topSpace={Dimensions.get("screen").height * 0.01}
-            bottomSpace={Dimensions.get("screen").height * 0.03}
+            lineColor={'#B2B4B8'}
+            topSpace={Dimensions.get('screen').height * 0.01}
+            bottomSpace={Dimensions.get('screen').height * 0.03}
           />
 
           <NavItem
             Icon={ContactUsIcon}
-            text={"Contact Us"}
-            onClickFunction={() => console.log("CONTACT US")}
-            type={"drawer"}
+            text={'Contact Us'}
+            onClickFunction={() => console.log('CONTACT US')}
+            type={'drawer'}
           />
 
           {/* <DrawerItem
@@ -238,10 +227,10 @@ function CustomDrawerContent(props) {
       </ScrollView>
       <TouchableOpacity
         style={{
-          position: "absolute",
+          position: 'absolute',
           bottom: 40,
-          justifyContent: "center",
-          alignSelf: "center",
+          justifyContent: 'center',
+          alignSelf: 'center',
           // backgroundColor: "#FE3434",
           // width: 68,
           // height: 68,
@@ -254,11 +243,10 @@ function CustomDrawerContent(props) {
               ...appData,
               modalOpen: true,
               online: false,
-            })
+            }),
           );
           props.navigation.toggleDrawer();
-        }}
-      >
+        }}>
         <GoOfflineIcon />
         {/* <Text
           style={{
@@ -277,19 +265,20 @@ function CustomDrawerContent(props) {
 
 const Drawer = createDrawerNavigator();
 
-const DrawerNav = (props) => {
-  const { colors } = useTheme();
+const DrawerNav = props => {
+  const {colors} = useTheme();
   return (
     <SafeAreaProvider>
       <Drawer.Navigator
-        drawerContent={(props) => <CustomDrawerContent {...props} />}
+        drawerContent={props => <CustomDrawerContent {...props} />}
         screenOptions={{
+          drawerType: 'front',
+
           drawerStyle: {
             backgroundColor: colors.background,
-            width: "76%",
+            width: '76%',
           },
-        }}
-      >
+        }}>
         <Drawer.Screen
           name="MapScreen"
           component={MapScreen}

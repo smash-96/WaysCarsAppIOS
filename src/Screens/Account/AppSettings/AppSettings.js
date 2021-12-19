@@ -74,7 +74,7 @@ const ExpandableComponent = ({index, item, onClickFunction, setSubValues}) => {
       <View
         style={{
           paddingLeft: 12,
-          paddingRight: 12,
+          paddingRight: 24,
         }}>
         <Line
           lineColor={'#B2B4B8'}
@@ -133,11 +133,28 @@ const ExpandableComponent = ({index, item, onClickFunction, setSubValues}) => {
                   />
                 </View>
               ) : (
-                <View
-                  style={{
-                    marginBottom: 20,
-                  }}
-                />
+                <>
+                  {item.category_name !== 'Navigation' ? (
+                    <View
+                      style={{
+                        paddingLeft: 12,
+                        paddingRight: 24,
+                        marginTop:12
+                      }}>
+                      <Line
+                        lineColor={'#B2B4B8'}
+                        topSpace={Dimensions.get('screen').height * 0.02}
+                        bottomSpace={Dimensions.get('screen').height * 0.022}
+                      />
+                    </View>
+                  ) : (
+                    <View
+                      style={{
+                        marginBottom: 20,
+                      }}
+                    />
+                  )}
+                </>
               )}
             </View>
           );
@@ -201,7 +218,7 @@ const AppSettings = props => {
         paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() : 0,
       }}>
       <ScreenHeader
-        title={'App settings'}
+        title={'App Settings'}
         backPress={() => props.navigation.goBack()}
       />
 

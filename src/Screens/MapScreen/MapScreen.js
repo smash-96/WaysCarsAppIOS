@@ -485,12 +485,12 @@ const MapScreen = (props) => {
             right: 16,
             //backgroundColor: "lightgreen",
           }}
-          onPress={() => {
-            if (appData?.online) {
-              //setJobAcceptedView(false);
-              setReachedView(true);
-            }
-          }}
+          // onPress={() => {
+          //   if (appData?.online) {
+          //     //setJobAcceptedView(false);
+          //     setReachedView(true);
+          //   }
+          // }}
         >
           <LocationPointIcon color={"white"} />
         </TouchableOpacity>
